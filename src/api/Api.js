@@ -7,7 +7,10 @@ const getData = () => {
           id: characters.id,
           name: characters.name,
           species: characters.species,
-          image: characters.image
+          image: characters.image,
+          status: characters.status,
+          origin: characters.origin.name,
+          episode: characters.episode
         };
       });
     })
