@@ -15,8 +15,8 @@ const Home = props => {
 };
 
 Home.propTypes = {
-  filter: PropTypes.func.isRequired,
-  handleFilter: PropTypes.string.isRequired,
+  filter: PropTypes.string.isRequired,
+  handleFilter: PropTypes.func.isRequired,
   characters: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 

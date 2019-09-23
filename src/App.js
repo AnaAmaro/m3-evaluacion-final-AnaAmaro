@@ -2,8 +2,6 @@ import React from 'react';
 import './App.css';
 import getData from './api/Api';
 import logo from './images/Rickandmortylogo.png';
-//import CharaterList from './components/CharacterList';
-//import CharacterFilter from './components/CharacterFilter';
 import Home from './components/Home.js';
 import { Switch, Route } from 'react-router-dom';
 
