@@ -10,7 +10,7 @@ const getData = () => {
           image: characters.image,
           status: characters.status,
           origin: characters.origin.name,
-          episode: characters.episode
+          episode: characters.episode.length
         };
       });
     })

@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import getData from './api/Api';
 import logo from './images/Rickandmortylogo.png';
-import Home from './components/Home.js';
+import Home from './components/Home';
+import CharacterDetail from './components/CharacterDetail';
 import { Switch, Route } from 'react-router-dom';
 
 let charactersFilter = [];
@@ -28,7 +29,6 @@ class App extends React.Component {
 
   handleFilter(event) {
     const characterFilter = event.target.value;
-
     this.setState({
       filter: characterFilter
     });
@@ -54,6 +54,17 @@ class App extends React.Component {
                 <Home
                   filter={this.state.filter}
                   handleFilter={this.handleFilter}
+                  characters={charactersFilter}
+                />
+              );
+            }}
+          />
+          <Route
+            path='/character__detail/:characterId'
+            render={routerProps => {
+              return (
+                <CharacterDetail
+                  routerProps={routerProps}
                   characters={charactersFilter}
                 />
               );
