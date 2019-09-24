@@ -9,73 +9,73 @@ import { Switch, Route } from 'react-router-dom';
 let charactersFilter = [];
 
 class App extends React.Component {
-  constructor() {
-    super();
+	constructor() {
+		super();
 
-    this.state = {
-      rickandmorty: [],
-      filter: ''
-    };
-    this.handleFilter = this.handleFilter.bind(this);
-  }
+		this.state = {
+			rickandmorty: [],
+			filter: ''
+		};
+		this.handleFilter = this.handleFilter.bind(this);
+	}
 
-  componentDidMount() {
-    getData().then(rickandmorty => {
-      this.setState({
-        rickandmorty: rickandmorty
-      });
-    });
-  }
+	componentDidMount() {
+		getData().then(rickandmorty => {
+			this.setState({
+				rickandmorty: rickandmorty
+			});
+		});
+	}
 
-  handleFilter(event) {
-    const characterFilter = event.target.value;
-    this.setState({
-      filter: characterFilter
-    });
-  }
+	handleFilter(event) {
+		const characterFilter = event.target.value;
+		this.setState({
+			filter: characterFilter
+		});
+	}
 
-  render() {
-    charactersFilter = this.state.rickandmorty.filter(characters => {
-      return characters.name
-        .toUpperCase()
-        .includes(this.state.filter.toUpperCase());
-    });
+	render() {
+		charactersFilter = this.state.rickandmorty.filter(characters => {
+			return characters.name
+				.toUpperCase()
+				.includes(this.state.filter.toUpperCase());
+		});
 
-    return (
-      <div className='app'>
-        <h1 className='title'>
-          <img src={logo} alt='rickandmorty' />
-        </h1>
+		return (
+			<div className='app'>
+				<h1 className='title'>
+					<img className='title__img' src={logo} alt='rickandmorty' />
+				</h1>
 
-        <Switch>
-          <Route
-            exact
-            path='/'
-            render={() => {
-              return (
-                <Home
-                  filter={this.state.filter}
-                  handleFilter={this.handleFilter}
-                  characters={charactersFilter}
-                />
-              );
-            }}
-          />
-          <Route
-            path='/character__detail/:characterId'
-            render={routerProps => {
-              return (
-                <CharacterDetail
-                  routerProps={routerProps}
-                  characters={charactersFilter}
-                />
-              );
-            }}
-          />
-        </Switch>
-      </div>
-    );
-  }
+				<Switch>
+					<Route
+						exact
+						path='/'
+						render={() => {
+							return (
+								<Home
+									filter={this.state.filter}
+									handleFilter={this.handleFilter}
+									characters={charactersFilter}
+								/>
+							);
+						}}
+					/>
+					<Route
+						path='/character__detail/:characterId'
+						render={routerProps => {
+							return (
+								<CharacterDetail
+									routerProps={routerProps}
+									characters={charactersFilter}
+								/>
+							);
+						}}
+					/>
+				</Switch>
+			</div>
+		);
+	}
 }
 
 export default App;

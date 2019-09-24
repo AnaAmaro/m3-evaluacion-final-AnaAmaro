@@ -5,7 +5,6 @@ class CharacterFilter extends React.Component {
     return (
       <div>
         <label htmlFor='characterfilter'>
-          <h3 className='characterfilter__title'>Escoge tu personaje</h3>
           <input
             type='text'
             id='name'

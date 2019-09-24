@@ -5,10 +5,10 @@ import { Link } from 'react-router-dom';
 const CharacterDetail = props => {
   const { routerProps, characters } = props;
   const characterId = parseInt(routerProps.match.params.characterId);
-  const character = characters.filter(item => item.id === characterId);
+  const character = characters.find(item => item.id === characterId);
 
-  if (character[0]) {
-    const { image, name, status, species, origin, episode } = character[0];
+  if (character) {
+    const { image, name, status, species, origin, episode } = character;
     return (
       <React.Fragment>
         <div className='character__detail'>
