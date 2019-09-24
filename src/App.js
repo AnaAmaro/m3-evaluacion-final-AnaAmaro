@@ -36,7 +36,9 @@ class App extends React.Component {
 
   render() {
     charactersFilter = this.state.rickandmorty.filter(characters => {
-      return characters.name.includes(this.state.filter);
+      return characters.name
+        .toUpperCase()
+        .includes(this.state.filter.toUpperCase());
     });
 
     return (
